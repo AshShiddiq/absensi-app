@@ -44,8 +44,6 @@ class HalamanLogin : Fragment() {
         val factory = AttendanceViewModelFactory(repository)
         viewModel = ViewModelProvider(this, factory )[AttendanceViewModel::class.java]
 
-
-
         // Observe perubahan pada LiveData loginResponse
         viewModel.loginResponse.observe(viewLifecycleOwner, Observer { response ->
 
