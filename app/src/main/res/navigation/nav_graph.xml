@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/halamanLogin">
+
+    <fragment
+        android:id="@+id/halamanAbsen"
+        android:name="com.example.app_absensi.iu.attendance.absenmasuk.HalamanAbsen"
+        android:label="fragment_halaman_absen"
+        tools:layout="@layout/fragment_halaman_absen">
+        <action
+            android:id="@+id/action_halamanAbsen_to_halamanUtama"
+            app:destination="@id/halamanUtama"
+            app:enterAnim="@android:anim/fade_in" />
+    </fragment>
+    <fragment
+        android:id="@+id/halamanAbsen2"
+        android:name="com.example.app_absensi.iu.attendance.absenkeluar.HalamanAbsen2"
+        android:label="fragment_halaman_absen2"
+        tools:layout="@layout/fragment_halaman_absen2">
+        <action
+            android:id="@+id/action_halamanAbsen2_to_halamanUtama"
+            app:destination="@id/halamanUtama"
+            app:enterAnim="@android:anim/fade_in" />
+    </fragment>
+    <fragment
+        android:id="@+id/halamanLogin"
+        android:name="com.example.app_absensi.iu.auth.login.HalamanLogin"
+        android:label="fragment_halaman_login"
+        tools:layout="@layout/fragment_halaman_login">
+        <action
+            android:id="@+id/action_halamanLogin_to_halamanUtama"
+            app:destination="@id/halamanUtama"
+            app:enterAnim="@android:anim/fade_in" />
+        <action
+            android:id="@+id/action_halamanLogin_to_halamanRegister"
+            app:destination="@id/halamanRegister"
+            app:enterAnim="@android:anim/slide_in_left" />
+        <action
+            android:id="@+id/action_halamanLogin_to_lupaPasswordFragment"
+            app:destination="@id/lupaPasswordFragment"
+            app:enterAnim="@anim/fade_in" />
+    </fragment>
+    <fragment
+        android:id="@+id/halamanRegister"
+        android:name="com.example.app_absensi.iu.auth.register.HalamanRegister"
+        android:label="fragment_halaman_register"
+        tools:layout="@layout/fragment_halaman_register">
+        <action
+            android:id="@+id/action_halamanRegister_to_halamanLogin"
+            app:destination="@id/halamanLogin"
+            app:enterAnim="@android:anim/fade_in" />
+    </fragment>
+    <fragment
+        android:id="@+id/halamanUtama"
+        android:name="com.example.app_absensi.iu.HalamanUtama"
+        android:label="fragment_halaman_utama"
+        tools:layout="@layout/fragment_halaman_utama">
+        <action
+            android:id="@+id/action_halamanUtama_to_halamanAbsen"
+            app:destination="@id/halamanAbsen"
+            app:enterAnim="@android:anim/fade_in" />
+        <action
+            android:id="@+id/action_halamanUtama_to_halamanLogin"
+            app:destination="@id/halamanLogin"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:popUpTo="@id/halamanLogin" />
+        <action
+            android:id="@+id/action_halamanUtama_to_halamanPerizinan"
+            app:destination="@id/halamanPerizinan"
+            app:enterAnim="@android:anim/fade_in" />
+        <action
+            android:id="@+id/action_halamanUtama_to_halamanAbsen2"
+            app:destination="@id/halamanAbsen2"
+            app:enterAnim="@android:anim/fade_in" />
+        <action
+            android:id="@+id/action_halamanUtama_to_profile"
+            app:destination="@id/profile"
+            app:enterAnim="@android:anim/fade_in" />
+        <action
+            android:id="@+id/action_halamanUtama_to_absenMakan"
+            app:destination="@id/absenMakan"
+            app:enterAnim="@android:anim/fade_in" />
+    </fragment>
+    <fragment
+        android:id="@+id/halamanPerizinan"
+        android:name="com.example.app_absensi.iu.attendance.izin.HalamanPerizinan"
+        android:label="HalamanPerizinan"
+        android:layout="@layout/fragment_halaman_perizinan">
+        <action
+            android:id="@+id/action_halamanPerizinan_to_halamanUtama"
+            app:destination="@id/halamanUtama"
+            app:enterAnim="@android:anim/fade_in" />
+    </fragment>
+    <fragment
+        android:id="@+id/listAbsen"
+        android:name="com.example.app_absensi.iu.history.ListAbsen"
+        android:label="ListAbsen"
+        android:layout="@layout/fragment_list_absen">
+        <action
+            android:id="@+id/action_listAbsen_to_profile"
+            app:destination="@id/profile"
+            app:enterAnim="@android:anim/fade_in" />
+    </fragment>
+    <fragment
+        android:id="@+id/profile"
+        android:name="com.example.app_absensi.iu.profile.Profile"
+        android:label="Profile">
+        <action
+            android:id="@+id/action_profile_to_halamanUtama"
+            app:destination="@id/halamanUtama"
+            app:enterAnim="@android:anim/fade_in" />
+        <action
+            android:id="@+id/action_profile_to_listAbsen"
+            app:destination="@id/listAbsen"
+            app:enterAnim="@android:anim/fade_in" />
+    </fragment>
+    <fragment
+        android:id="@+id/absenMakan"
+        android:name="com.example.app_absensi.iu.attendance.absenmakan.AbsenMakan"
+        android:label="AbsenMakan">
+        <action
+            android:id="@+id/action_absenMakan_to_halamanUtama"
+            app:destination="@id/halamanUtama"
+            app:enterAnim="@android:anim/fade_in" />
+    </fragment>
+    <fragment
+        android:id="@+id/lupaPasswordFragment"
+        android:name="com.example.app_absensi.iu.auth.reset.LupaPasswordFragment"
+        android:label="fragment_lupa_password"
+        tools:layout="@layout/fragment_lupa_password" >
+        <action
+            android:id="@+id/action_lupaPasswordFragment_to_halamanLogin"
+            app:destination="@id/halamanLogin"
+            app:enterAnim="@anim/fade_in" />
+    </fragment>
+</navigation>
