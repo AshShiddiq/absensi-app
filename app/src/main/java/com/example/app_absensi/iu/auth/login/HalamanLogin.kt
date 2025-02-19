@@ -51,16 +51,28 @@ class HalamanLogin : Fragment() {
 
                 // log untuk memastikan bahwa kode ini dijalankan
                 Log.d("LoginFragment", "Login berhasil, berpindah halaman.")
+                Log.d("LoginFragment", "Role yang diterima dari response: ${response.role}")
 //                Toast.makeText(requireContext(), response.message ?: "Login Berhasil", Toast.LENGTH_SHORT).show()
                 // Navigasi ke halaman home jika login berhasil
-                findNavController().navigate(R.id.action_halamanLogin_to_halamanUtama)
+//                findNavController().navigate(R.id.action_halamanLogin_to_halamanUtama)
                 // Simpan userId di SharedPreferences
                  response.userId?.let {
                     saveUserId(it)
                 }
-
                 response.name?.let {
                     saveUserName(it)
+                }
+                response.role?.let {
+                    saveUserRole(it)
+                }
+
+                val userEmail = binding.inputEmail.text.toString()
+                val finalRole = if (userEmail == "admin@gmail.com") "admin" else response.role
+
+                if (finalRole == "admin") {
+                    findNavController().navigate(R.id.action_halamanLogin_to_pending_users)
+                } else {
+                    findNavController().navigate(R.id.action_halamanLogin_to_halamanUtama)
                 }
             } else {
                 // Tampilkan pesan error jika login gagal
@@ -83,7 +95,7 @@ class HalamanLogin : Fragment() {
             }
         }
 
-        // Navigasi to Register
+
         binding.tvToRegister.setOnClickListener {
             findNavController().navigate(R.id.action_halamanLogin_to_halamanRegister)
         }
@@ -106,5 +118,14 @@ class HalamanLogin : Fragment() {
         val editor = sharedPreferences.edit()
         editor.putString("userId", userId)
         editor.apply()
+    }
+
+    fun saveUserRole(role: String) {
+        context?.let { ctx ->
+            val sharedPreferences = ctx.getSharedPreferences("USER_PREFS", Context.MODE_PRIVATE)
+            sharedPreferences.edit()
+                .putString("user_role", role)
+                .apply()
+        }
     }
 }

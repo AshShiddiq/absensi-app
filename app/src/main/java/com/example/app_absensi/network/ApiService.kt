@@ -1,5 +1,8 @@
 package com.example.app_absensi.network
 
+import com.example.app_absensi.VerifyUserRequest
+import com.example.app_absensi.data.model.DefaultResponse
+import com.example.app_absensi.data.model.UserListResponse
 import com.example.app_absensi.data.model.LunchAttendance
 import com.example.app_absensi.iu.attendance.AbsenResponse
 import com.example.app_absensi.iu.attendance.izin.IzinResponse
@@ -47,7 +50,7 @@ val client = OkHttpClient.Builder()
 object RetrofitInstance {
     private val retrofit by lazy {
         Retrofit.Builder()
-            .baseUrl("http://192.168.0.111/absensi/") // Sesuaikan dengan URL server lokal
+            .baseUrl("http://192.168.100.8/absensi/") // Sesuaikan dengan URL server lokal
             .client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
@@ -86,5 +89,20 @@ interface ApiService {
 
     @POST("confirm.php")
     suspend fun absenMakan(@Body attendance: LunchAttendance): Response<AbsenResponse>
+
+
+    @GET("get_pending_users.php")
+    suspend fun getPendingUsers(): Response<UserListResponse>
+
+    @POST("verify_user.php")
+    suspend fun verifyUser(@Body request: VerifyUserRequest): Response<DefaultResponse>
+
+
+
+//    @POST("")
+//    suspend fun verifyUser(
+//        @Body request: VerifyUserRequest): Response<DefaultResponse>
+
+
 
 }

@@ -32,15 +32,15 @@ class AttendanceViewModel(private val repository: AttendanceRepository): ViewMod
                 if (response.isSuccessful) {
                     loginResponse.postValue(response.body())
                 } else {
-                    loginResponse.postValue(LoginResponse("fail", null,"Login gagal"))
+                    loginResponse.postValue(LoginResponse("fail", null,"Login gagal", role = ""))
                 }
         }
     }
 
 
-    fun registerUser(nama: String, jabatan: String, email: String, password: String) {
+    fun registerUser(name: String, jabatan: String, email: String, password: String) {
         viewModelScope.launch {
-            val response = repository.registerUser(nama, jabatan, email, password)
+            val response = repository.registerUser(name, jabatan, email, password)
             if (response.isSuccessful) {
                 registerResponse.postValue(response.body())
             } else {

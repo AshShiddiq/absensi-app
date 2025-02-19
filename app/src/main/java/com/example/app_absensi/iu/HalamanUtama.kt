@@ -5,8 +5,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
+import androidx.core.app.ActivityCompat.finishAffinity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavOptions
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.app_absensi.R
@@ -37,9 +41,6 @@ class HalamanUtama : Fragment() {
         binding.btnLogout.setOnClickListener {
             logout()
         }
-        binding.btnLogout.setOnClickListener {
-            it.findNavController().navigate(R.id.action_halamanUtama_to_halamanLogin)
-        }
         binding.cvPerizinan.setOnClickListener {
             it.findNavController().navigate(R.id.action_halamanUtama_to_halamanPerizinan)
         }
@@ -67,12 +68,17 @@ class HalamanUtama : Fragment() {
     fun logout() {
         val sharedPref = requireContext().getSharedPreferences("USER_PREF", Context.MODE_PRIVATE)
         val editor = sharedPref.edit()
-        editor.clear()  // Menghapus semua data di SharedPreferences
+        editor.clear()
         editor.apply()
 
-        // Arahkan ke Halaman login...
-        findNavController().navigate(R.id.action_halamanUtama_to_halamanLogin)
-    }
+        val navOptions = NavOptions.Builder()
+            .setPopUpTo(R.id.nav_graph, true)
+            .build()
 
+        findNavController().navigate(R.id.action_halamanUtama_to_halamanLogin, null, navOptions)
+
+        // Tutup semua aktivitas agar tidak bisa kembali ke halaman sebelumnya
+//        requireActivity().finishAffinity()
+    }
 
 }

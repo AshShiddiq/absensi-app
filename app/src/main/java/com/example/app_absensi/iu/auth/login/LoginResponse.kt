@@ -6,7 +6,8 @@ data class LoginResponse(
     val status: String, // "success" atau "fail"
     val userId: String?,
     val name: String?,
-    val message: String? = null // pesan kesalahan (opsional)
+    val message: String? = null, // pesan kesalahan (opsional)
+    val role: String?
     // Objek pengguna, jika berhasil login
 )
 

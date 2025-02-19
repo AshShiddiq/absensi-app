@@ -44,12 +44,12 @@
             app:layout_constraintBottom_toTopOf="@+id/Scroll"
             app:layout_constraintTop_toTopOf="parent">
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="wrap_content"
-                android:layout_height="80dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="10dp"
-                android:src="@drawable/inosoft" />
+<!--            <androidx.appcompat.widget.AppCompatImageView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="80dp"-->
+<!--                android:layout_marginTop="30dp"-->
+<!--                android:layout_marginBottom="10dp"-->
+<!--                android:src="@drawable/inosoft" />-->
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvWelcome"
@@ -61,7 +61,7 @@
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 android:fontFamily="sans-serif-medium"
-                android:paddingTop="5dp"
+                android:paddingTop="100dp"
                 android:paddingBottom="15dp"/>
         </androidx.appcompat.widget.LinearLayoutCompat>
 

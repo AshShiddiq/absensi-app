@@ -42,6 +42,9 @@
             android:id="@+id/action_halamanLogin_to_lupaPasswordFragment"
             app:destination="@id/lupaPasswordFragment"
             app:enterAnim="@anim/fade_in" />
+        <action
+            android:id="@+id/action_halamanLogin_to_pending_users"
+            app:destination="@id/pending_users" />
     </fragment>
     <fragment
         android:id="@+id/halamanRegister"
@@ -135,5 +138,16 @@
             android:id="@+id/action_lupaPasswordFragment_to_halamanLogin"
             app:destination="@id/halamanLogin"
             app:enterAnim="@anim/fade_in" />
+    </fragment>
+    <fragment
+        android:id="@+id/pending_users"
+        android:name="com.example.app_absensi.pending_users"
+        android:label="pending_users" >
+        <action
+            android:id="@+id/action_pending_users_to_halamanLogin"
+            app:destination="@id/halamanLogin" />
+        <action
+            android:id="@+id/action_pending_users_to_halamanUtama"
+            app:destination="@id/halamanUtama" />
     </fragment>
 </navigation>

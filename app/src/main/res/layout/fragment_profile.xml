@@ -57,6 +57,13 @@
             android:shadowColor="@color/white"
             android:src="@drawable/p" />
 
+        <Button
+            android:id="@+id/btnHapusFoto"
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            android:text="Hapus Foto"
+            android:visibility="invisible"
+            android:layout_gravity="center" />
 
         <!-- Nama Pengguna -->
         <TextView

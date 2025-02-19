@@ -5,5 +5,6 @@ data class User (
     val nama: String,
     val jabatan: String,
     val email: String,
-    val password: String
+    val password: String,
+    val verified: String
 )
